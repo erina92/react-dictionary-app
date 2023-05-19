@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import "./SearchForm.css";
 
-export default function Search() {
+export default function SearchForm() {
+  let [keyword, setKeyword] = useState("");
+
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
+  }
+  function search(event) {
+    event.preventDefault();
+    alert(`Searching for ${keyword}`);
+  }
   return (
     <div className="search">
       <div className="search-bar">
-        <form>
-          <label
-            for="default-search"
-            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-          >
-            Search
-          </label>
-          <div class="relative">
+        <form onSubmit={search}>
+          <label className="form-label">What word are you looking up?</label>
+          <div class="relative mt-2">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
@@ -35,6 +40,7 @@ export default function Search() {
               class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search for a word"
               required
+              onChange={handleKeywordChange}
             />
             <button
               type="submit"
