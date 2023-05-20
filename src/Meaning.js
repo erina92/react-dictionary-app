@@ -8,12 +8,16 @@ export default function Meaning(props) {
         {props.meaning.partOfSpeech}
       </h3>
       {props.meaning.definitions.map(function (definition, index) {
-        return (
-          <div key={index}>
-            <p className="mt-2">{definition.definition}</p>
-            <p className="underline decoration-sky-500">{definition.example}</p>
-          </div>
-        );
+        if (index < 1) {
+          return (
+            <div key={index} className="text-justify">
+              <p className="mt-2">{definition.definition}</p>
+              <p className="italic text-sm mt-2">{definition.example}</p>
+            </div>
+          );
+        } else {
+          return null;
+        }
       })}
     </div>
   );
