@@ -1,4 +1,5 @@
 import React from "react";
+import Synonyms from "./Synonyms";
 import "./Meaning.css";
 
 export default function Meaning(props) {
@@ -11,10 +12,14 @@ export default function Meaning(props) {
         if (index < 3) {
           return (
             <div key={index} className="text-justify">
-              <p className="mt-2">{definition.definition}</p>
-              <p className="italic text-sm mt-2">
-                <span className="text-pink-500">{definition.example}</span>
+              <p className="mt-2">
+                <strong>Definition:</strong> {definition.definition}
               </p>
+              <p className="italic text-sm mt-2">
+                <strong>Example:</strong>
+                <span className="text-pink-500"> {definition.example}</span>
+              </p>
+              <Synonyms synonyms={definition.synonyms} />
             </div>
           );
         } else {
