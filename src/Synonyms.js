@@ -2,7 +2,6 @@ import React from "react";
 import "./Synonyms.css";
 
 export default function Synonyms(props) {
-  console.log(props.synonyms);
   if (props.synonyms) {
     return (
       <div className="Synonyms mt-2">
@@ -10,7 +9,11 @@ export default function Synonyms(props) {
           <strong>Synonyms:</strong>
         </p>
         {props.synonyms.map(function (synonym, index) {
-          return <p key={index}> {synonym} </p>;
+          if (index < 4) {
+            return <p key={index}>{synonym}</p>;
+          } else {
+            return null;
+          }
         })}
       </div>
     );

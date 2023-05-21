@@ -9,7 +9,7 @@ export default function Meaning(props) {
         {props.meaning.partOfSpeech}
       </h3>
       {props.meaning.definitions.map(function (definition, index) {
-        if (index < 5) {
+        if (index < 3) {
           return (
             <div key={index} className="text-justify">
               <p className="mt-2">

@@ -23,7 +23,6 @@ export default function SearchForm() {
 
     // documentation for dictionary api https://api.dictionaryapi.dev
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
   }
 
